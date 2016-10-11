@@ -13,8 +13,8 @@ module.exports = {
       'zone.js'
     ],
     'common': ['es6-shim'],
-    'app': './src/app/main.ts',
-    'vendor': './src/vendor.ts'
+    // 'app': './src/app/main.ts',
+    'vendor': './showcase/vendor.ts'
   },
 
   output: {
@@ -57,6 +57,5 @@ module.exports = {
 
   plugins: [
     new CommonsChunkPlugin({ names: ['@angular', 'common'], minChunks: Infinity })
-  ],
-  target:'electron-renderer'
+  ]
 };

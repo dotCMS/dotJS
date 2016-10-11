@@ -1,26 +1,19 @@
 {
-  "name": "dotCMS-Desktop",
+  "name": "dotJS",
   "version": "0.0.1",
   "description": "",
-  "main": "main.js",
   "scripts": {
     "start": "electron main.js",
     "build": "webpack --progress --profile --colors --display-error-details --display-cached",
-    "watch": "webpack --watch --progress --profile --colors --display-error-details --display-cached",
-    "distribute": "electron-packager . dotCMS-Desktop --platform=darwin --arch=x64 --out=releases/ --overwrite --icon=src/assets/images/electrogram  --asar"
+    "watch": "webpack --watch --progress --profile --colors --display-error-details --display-cached"
   },
-  "author": "JT aks LORDs_diakonos",
+  "author": "dotCMS",
   "license": "GPL 3",
   "devDependencies": {
     "@types/selenium-webdriver": "^2.53.1",
-    "angular2-logger": "^0.5.0",
     "css-loader": "^0.23.1",
     "debug-menu": "^0.4.0",
-    "electron-packager": "^7.0.1",
-    "electron-prebuilt": "^1.0.1",
-    "electron-reload": "^0.3.0",
     "json-loader": "^0.5.4",
-    "primeng": "^1.0.0-beta.17",
     "raw-loader": "^0.5.1",
     "ts-loader": "^0.8.2",
     "typescript": "^1.8.10",
@@ -42,6 +35,7 @@
     "electron-json-storage": "^2.0.0",
     "electron-reload": "^0.3.0",
     "es6-shim": "^0.35.1",
+    "primeng": "^1.0.0-beta.17",
     "file-loader": "^0.8.5",
     "material-design-lite": "^1.1.3",
     "reflect-metadata": "0.1.3",
