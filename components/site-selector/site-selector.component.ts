@@ -1,14 +1,11 @@
 import {Component, Inject} from "@angular/core";
-import {HttpClient} from "../util/http.service";
-import {Response} from "@angular/http";
 
 import 'rxjs/add/operator/map';
-import {Observable, Subscription} from "rxjs";
-import {SiteBrowserState} from "../util/site-browser.state";
-import {Site} from "../treeable/shared/site.model";
-import {NotificationService} from "../util/notification.service";
 import {SiteSelectorService} from "./site-selector.service";
-import {SettingsService} from "../settings/shared/settings.service";
+import {Site} from "../../core/treeable/shared/site.model";
+import {HttpClient} from "../../core/util/http.service";
+import {SiteBrowserState} from "../../core/util/site-browser.state";
+import {NotificationService} from "../../core/util/notification.service";
 
 @Inject('updateService')
 @Component({

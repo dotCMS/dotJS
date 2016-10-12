@@ -1,9 +1,9 @@
-import {HttpClient} from "../util/http.service";
-import {NotificationService} from "../util/notification.service";
 import {Response} from "@angular/http";
-import {Site} from "../treeable/shared/site.model";
 import {Observable} from "rxjs";
 import {Inject, Injectable} from "@angular/core";
+import {HttpClient} from "../../core/util/http.service";
+import {NotificationService} from "../../core/util/notification.service";
+import {Site} from "../../core/treeable/shared/site.model";
 
 @Injectable()
 export class SiteSelectorService{

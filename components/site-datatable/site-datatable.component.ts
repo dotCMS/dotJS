@@ -1,15 +1,13 @@
 import {Component} from "@angular/core";
-import {Treeable} from "../treeable/shared/treeable.model";
 import {Subscription} from "rxjs";
-import {SiteBrowserState} from "../util/site-browser.state";
-import {FileSystemService} from "../util/filesystem.service";
-import {LoggerService} from "../util/logger.service";
-import {SiteDatatableService} from "./site-datatable.service";
-import {NotificationService} from "../util/notification.service";
-import {SiteBrowserService} from "../util/site-browser.service";
-import {Folder} from "../treeable/shared/folder.model";
-import {SettingsService} from "../settings/shared/settings.service";
-import {SettingsStorageService} from "../settings/shared/settings-storage.service";
+import {Treeable} from "../../core/treeable/shared/treeable.model";
+import {SiteBrowserState} from "../../core/util/site-browser.state";
+import {FileSystemService} from "../../core/util/filesystem.service";
+import {LoggerService} from "../../core/util/logger.service";
+import {SiteBrowserService} from "../../core/util/site-browser.service";
+import {SettingsStorageService} from "../../core/util/settings-storage.service";
+import {NotificationService} from "../../core/util/notification.service";
+import {Folder} from "../../core/treeable/shared/folder.model";
 
 @Component({
     selector: 'site-datatable',

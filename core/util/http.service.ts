@@ -5,7 +5,7 @@ import {Observable} from "rxjs";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
-import {SettingsStorageService} from "../settings/shared/settings-storage.service";
+import {SettingsStorageService} from "./settings-storage.service";
 
 @Injectable()
 export class HttpClient {

@@ -1,10 +1,8 @@
 import {Component} from "@angular/core";
-import {Treeable} from "../treeable/shared/treeable.model";
-import {LoggerService} from "../util/logger.service";
-import {SiteBrowserState} from "../util/site-browser.state";
 import {Subscription} from "rxjs";
-import {SettingsService} from "../settings/shared/settings.service";
-import {SettingsStorageService} from "../settings/shared/settings-storage.service";
+import {Treeable} from "../../core/treeable/shared/treeable.model";
+import {SiteBrowserState} from "../../core/util/site-browser.state";
+import {SettingsStorageService} from "../../core/util/settings-storage.service";
 @Component({
     selector: 'treeable-detail',
     template: require('./treeable-detail.html'),

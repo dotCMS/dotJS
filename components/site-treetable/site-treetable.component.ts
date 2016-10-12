@@ -1,12 +1,11 @@
 import {Component, Inject} from "@angular/core";
 import {Message, TreeNode} from "primeng/components/common/api";
-import {FileSystemService} from "../util/filesystem.service"
-import {SiteBrowserState} from "../util/site-browser.state";
 import {Subscription} from "rxjs";
 import {SiteTreetableService} from "./site-treetable.service";
-import {NotificationService} from "../util/notification.service";
-import {LoggerService} from "../util/logger.service";
-import {SettingsService} from "../settings/shared/settings.service";
+import {SiteBrowserState} from "../../core/util/site-browser.state";
+import {FileSystemService} from "../../core/util/filesystem.service";
+import {LoggerService} from "../../core/util/logger.service";
+import {NotificationService} from "../../core/util/notification.service";
 
 let fs = require('fs');
 

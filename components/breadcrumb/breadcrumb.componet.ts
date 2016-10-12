@@ -1,15 +1,13 @@
 import {MenuItem} from "primeng/components/common/api";
 import {Component, Output, Inject} from "@angular/core";
-import {SiteBrowserState} from "../util/site-browser.state";
 import {Subscription} from "rxjs";
 import EventEmitter = NodeJS.EventEmitter;
-import {SettingsService} from "../settings/shared/settings.service";
+import {SiteBrowserState} from "../../core/util/site-browser.state";
 
 @Component({
     selector: 'breadcrumb',
     template: require('./breadcrumb.html'),
-    styles: [require('./../app.css')],
-    providers: [SettingsService]
+    styles: [require('./../app.css')]
 })
 @Inject('updateService')
 export class BreadcrumbComponent {
