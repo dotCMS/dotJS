@@ -29,11 +29,11 @@ export class SiteSelectorComponent {
         this.host = updateService.getSelectedSite();
     }
 
-    siteSelected(event){
+    siteSelected(event : any){
         this.updateService.changeSite(this.host);
     }
 
-    filterHosts(event) {
+    filterHosts(event : any) {
         this.siteSelectorService.filterForSites(event.query)
             .subscribe((sites: Site[]) => this.handleSiteResults(sites,event));
         setTimeout(() => {}, 100)

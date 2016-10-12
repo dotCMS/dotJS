@@ -2,9 +2,7 @@ import {LocalStoreService} from "./local-store.service";
 import {DotSettings} from "./settings.model";
 import {APP_CONFIG, AppConfig} from "../app.config";
 import {Inject, Injectable} from "@angular/core";
-import {JWTAuthService} from "./jwt-auth.service";
 import {SiteBrowserState} from "./site-browser.state";
-import {inject} from "@angular/core/testing";
 
 @Injectable()
 export class SettingsStorageService {

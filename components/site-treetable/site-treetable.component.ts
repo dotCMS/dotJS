@@ -46,14 +46,15 @@ export class SiteTreeTableComponent {
         }, 100)
     }
 
-    handleDragOver(e) {
+    handleDragOver(e : any) {
         this.dropzoneStylesVisible = true;
     }
 
-    handleDrop(e) {
+    handleDrop(e : any) {
         e.preventDefault();
         let pathToUploadTo: string;
-        var files: File = e.dataTransfer.files;
+        //todo fix any to right type
+        let files: any[] = e.dataTransfer.files;
         let folderTitle: string = e.path[0].innerText;
         console.log(files);
 
@@ -91,17 +92,17 @@ export class SiteTreeTableComponent {
         }, 100)
     }
 
-    nodeSelect(event) {
+    nodeSelect(event : any) {
         this.msgs = [];
         this.msgs.push({severity: 'info', summary: 'Node Selected', detail: event.node.data.name});
     }
 
-    nodeUnselect(event) {
+    nodeUnselect(event : any) {
         this.msgs = [];
         this.msgs.push({severity: 'info', summary: 'Node Unselected', detail: event.node.data.name});
     }
 
-    nodeExpand(event) {
+    nodeExpand(event : any) {
         let pathName: string = (<string>event.node.data.path);
         pathName = pathName.slice(0, pathName.length - 1);
         pathName = pathName.slice(pathName.lastIndexOf("/") + 1, pathName.length)

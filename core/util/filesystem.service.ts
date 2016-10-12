@@ -29,17 +29,17 @@ export class FileSystemService {
 
     isDirectory(localPath : string) {
         let ret : boolean = false;
-        fs.stat(localPath, function (err,data,r) {
+        fs.stat(localPath, function (err:any,data:any,r:any) {
             if (err) {
                 this.logFileReadingError(err);
                 throw err;
             }
             r = data.isDirectory();
-        }).toPromise().onSuccess(function(r) {ret = r});
+        }).toPromise().onSuccess(function(r:any) {ret = r});
         return ret;
     }
 
-    private logFileReadingError(err){
+    private logFileReadingError(err:any){
         if (err) {
             console.log(err);
             this.messageService.displayErrorMessage("There was an error reading the file or directory; please try again");

@@ -50,7 +50,8 @@ export class SiteDatatableComponent {
         }, 100)
     }
 
-    doubleClick(event){
+    //TODO fix any
+    doubleClick(event : any){
         if(event.data.type!='folder'){return;}
         let pathName: string = (<string>event.data.path);
         pathName = pathName.slice(0, pathName.length - 1);
@@ -65,7 +66,7 @@ export class SiteDatatableComponent {
         }, 100)
     }
 
-    selectTreeable(event){
+    selectTreeable(event : any){
         this.updateService.changeTreeable(event.data);
     }
 
@@ -82,17 +83,17 @@ export class SiteDatatableComponent {
         setTimeout(() => {}, 100)
     }
 
-    handleDragOver(e) {
+    handleDragOver(e : any) {
         // this.dropzoneStylesVisible = true;
     }
 
-    handleDrop(e) {
+    handleDrop(e : any) {
         e.preventDefault();
         let pathToUploadTo: string;
         let files: File = e.dataTransfer.files;
         let folderTitle: string = e.path[0].innerText;
         console.log(files);
-        files[0].
+        // files[0]
         // for (let i = 0; i < this.treeables.length; i++) {
         //     let node: Treeable = this.treeables[i];
         //     if (node.title == folderTitle && node.type == "folder") {

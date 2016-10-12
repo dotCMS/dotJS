@@ -9,9 +9,10 @@ import {SettingsStorageService} from "./settings-storage.service";
 
 @Injectable()
 export class HttpClient {
-    public progress$
-    private progress
-    private progressObserver
+    private progressObserver :any
+    public progress$ : any
+    private progress : number
+
 
     constructor(
         private http: Http,
@@ -20,7 +21,7 @@ export class HttpClient {
     ) {
         // this.http = http;
         // this.settingsService=settingsService;
-        this.progress$ = Observable.create(observer => {
+        this.progress$ = Observable.create((observer:any) => {
             this.progressObserver = observer
         }).share();
     }
@@ -29,7 +30,7 @@ export class HttpClient {
         headers.append('Authorization', 'Bearer ' + this.settingsStorageService.getSettings().jwt);
     }
 
-    get(path): Observable<Response> {
+    get(path : string): Observable<Response> {
         let headers = new Headers();
         this.createAuthorizationHeader(headers);
         return this.http.get(this.settingsStorageService.getSettings().site + path, {headers: headers})
@@ -56,8 +57,8 @@ export class HttpClient {
         return this.http.post(this.settingsStorageService.getSettings().site + path,JSON.stringify(data),opts);
     }
 
-    filePut(path: String, file: File, jsonData: Object): Observable<Object> {
-        return Observable.create(observer => {
+    filePut(path: String, file: File, jsonData: Object): Observable<any> {
+        return Observable.create((observer:any) => {
             let formData: FormData = new FormData(), xhr: XMLHttpRequest = new XMLHttpRequest();
             formData.append('json', JSON.stringify(jsonData));
 

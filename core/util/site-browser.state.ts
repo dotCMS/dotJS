@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {Treeable} from "../treeable/shared/treeable.model";
 
 @Injectable()
@@ -11,11 +11,11 @@ export class SiteBrowserState {
     private currentTreeableSubject : BehaviorSubject<Treeable> = new BehaviorSubject<Treeable>(null);
     private currentSettingsUpdatedSubject : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
 
-    currentSite = this.currentSiteSubject.asObservable();
-    currentFolder = this.currentFolderSubject.asObservable();
-    currentURI = this.currentURISubject.asObservable();
-    currentTreeable = this.currentTreeableSubject.asObservable();
-    currentSetingsUpdated = this.currentSettingsUpdatedSubject.asObservable();
+    currentSite : Observable<string> = this.currentSiteSubject.asObservable();
+    currentFolder : Observable<string> = this.currentFolderSubject.asObservable();
+    currentURI : Observable<string> = this.currentURISubject.asObservable();
+    currentTreeable : Observable<Treeable> = this.currentTreeableSubject.asObservable();
+    currentSetingsUpdated : Observable<boolean> = this.currentSettingsUpdatedSubject.asObservable();
 
     changeSite(siteName: string) {
         this.currentSiteSubject.next(siteName);

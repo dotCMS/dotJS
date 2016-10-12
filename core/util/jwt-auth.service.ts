@@ -27,7 +27,7 @@ export class JWTAuthService{
             .catch(error => this.handleError(error));
     }
 
-    private doPostAuth(siteUrl:string, data) : Observable<Response>{
+    private doPostAuth(siteUrl:string, data:any) : Observable<Response>{
         let opts: RequestOptions = new RequestOptions();
         opts.method = RequestMethod.Post;
         opts.headers = new Headers({'Content-Type': 'application/json'});

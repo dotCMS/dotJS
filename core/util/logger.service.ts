@@ -1,4 +1,3 @@
-import {AppConfig, APP_CONFIG} from "../app.config";
 import {Inject, Injectable} from "@angular/core";
 import {Logger} from "angular2-logger/core";
 
