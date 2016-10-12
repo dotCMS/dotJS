@@ -8,6 +8,6 @@ export interface AppConfig {
 }
 
 export const DOT_CONFIG: AppConfig = {
-    iconPath: './src/assets/images/icons',
+    iconPath: './assets/images/icons',
     dotCMSURLKey: 'siteURLJWT'
 };
