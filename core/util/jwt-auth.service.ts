@@ -4,6 +4,9 @@ import {LoggerService} from "./logger.service";
 import {Http, Headers, Response, RequestMethod, RequestOptions} from '@angular/http';
 import {Observable} from "rxjs";
 
+/**
+ * Service for managing JWT Auth Token from dotCMS Site/Host
+ */
 @Injectable()
 export class JWTAuthService{
 
@@ -15,6 +18,13 @@ export class JWTAuthService{
     )
     {}
 
+    /**
+     * Will POST to the dotCMS to retrieve a dotCMS Auth Token
+     * @param siteURL Site/Host of dotCMS
+     * @param username
+     * @param password
+     * @returns {Observable<R>} String return for the token
+     */
     getJWT(siteURL:string,username:string,password:string):Observable<string> {
         console.log(siteURL);
         var data = {

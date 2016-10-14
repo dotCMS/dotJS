@@ -7,6 +7,10 @@ import {Folder} from "../treeable/shared/folder.model";
 import {File} from "../treeable/shared/file.model";
 import {NotificationService} from "./notification.service";
 
+/**
+ * SiteBrowserService will allows operations against the set dotCMS Site/Host for Tree operations. Treeable assets
+ * in dotCMS are anything that live on a host/folder.
+ */
 @Injectable()
 export class SiteBrowserService {
 
@@ -17,14 +21,25 @@ export class SiteBrowserService {
     )
     {}
 
+    /**
+     * Returns the Treeable assets (files, folders) under a host/folder
+     * @param siteName dotCMS Site to load assets for
+     * @returns {Observable<R>} Gets the Treeable objects. If a file the Treeable will be File as File extends Treeable
+     */
     getTreeableAssetsUnderSite(siteName: String): Observable < Treeable[] > {
         return this.httpClient.get('/api/v1/browsertree/sitename/' + siteName + '/uri//')
             .map((res: Response) => this.extractDataFilter(res))
             .catch(error => this.handleError(error));
     }
 
-    getTreeableAssetsUnderFolder(hostName: String, uri: String): Observable < Treeable[] > {
-        return this.httpClient.get('/api/v1/browsertree/sitename/' + hostName + '/uri/' + uri)
+    /**
+     * Returns the Treeable assets (files, folders) under a host/folder
+     * @param siteName dotCMS Site to load assets for
+     * @param uri Path to load assets from
+     * @returns {Observable<R>} Gets the Treeable objects. If a file the Treeable will be File as File extends Treeable
+     */
+    getTreeableAssetsUnderFolder(siteName: String, uri: String): Observable < Treeable[] > {
+        return this.httpClient.get('/api/v1/browsertree/sitename/' + siteName + '/uri/' + uri)
             .map((res: Response) => this.extractDataFilter(res))
             .catch(error => this.handleError(error));
     }

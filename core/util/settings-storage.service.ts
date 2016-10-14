@@ -4,6 +4,9 @@ import {APP_CONFIG, AppConfig} from "../app.config";
 import {Inject, Injectable} from "@angular/core";
 import {SiteBrowserState} from "./site-browser.state";
 
+/**
+ * Stores and returns the DotSettings class
+ */
 @Injectable()
 export class SettingsStorageService {
 
@@ -21,6 +24,11 @@ export class SettingsStorageService {
         return JSON.parse(this.localStoreService.getValue(this.configKey));
     }
 
+    /**
+     * Stores the DotSettings object
+     * @param siteURL
+     * @param JWT
+     */
     storeSettings(siteURL : string, JWT : string){
         let dSettings : DotSettings = new DotSettings();
         dSettings.site = siteURL;
@@ -28,6 +36,9 @@ export class SettingsStorageService {
         this.localStoreService.storeValue(this.configKey,JSON.stringify(dSettings));
     }
 
+    /**
+     * removes stored settings
+     */
     clearSettings(){
         this.localStoreService.clearValue(this.configKey);
     }

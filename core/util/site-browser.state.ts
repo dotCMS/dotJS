@@ -2,6 +2,9 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 import {Treeable} from "../treeable/shared/treeable.model";
 
+/**
+ * Manages the state of objects in dotcms-js so compoents can Observe changes and reload as needed
+ */
 @Injectable()
 export class SiteBrowserState {
 
