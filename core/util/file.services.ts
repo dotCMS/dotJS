@@ -5,10 +5,10 @@ import {HttpClient} from "./http.service";
 import {Observable} from "rxjs";
 import {SiteBrowserState} from "./site-browser.state";
 
-@Injectable()
 /**
  * Can be used for CRUD operations on dotCMS FileAssets. Not all CRUD operations are currently implemented
  */
+@Injectable()
 export class FileService {
 
     constructor

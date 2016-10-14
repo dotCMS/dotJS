@@ -3,10 +3,10 @@ import {Injectable} from "@angular/core";
 
 var fs = require('fs');
 
-@Injectable()
 /**
  * FileSystemService provides helper utilities to read and crawl the local filesystem
  */
+@Injectable()
 export class FileSystemService {
 
     constructor
