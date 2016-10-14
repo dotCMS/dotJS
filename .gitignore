@@ -8,6 +8,8 @@ dotcms-js.js
 core/**/*.js
 components/**/*.js
 showcase/**/*.js
+!showcase/config/*.js
+dotJS.js
 *.map
 
 *.class
