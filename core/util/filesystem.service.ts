@@ -1,9 +1,12 @@
 import {NotificationService} from "./notification.service";
-import {Inject, Injectable} from "@angular/core";
+import {Injectable} from "@angular/core";
 
 var fs = require('fs');
 
 @Injectable()
+/**
+ * FileSystemService provides helper utilities to read and crawl the local filesystem
+ */
 export class FileSystemService {
 
     constructor
@@ -12,6 +15,12 @@ export class FileSystemService {
     )
     {}
 
+    /**
+     * Utility method to help crawl a local directoy returning all folders and files underneath it
+     * @param directory Local Filesystem Directory to crawl
+     * @param files Can be NULL. Is a list of Strings to local File paths that will be returned.
+     * @returns {String[]} List of File and Folder Paths under the passed in path added to the passed in files[]
+     */
     recurseDirectory(directory : string, files : String[]) : String[]{
         let filePaths : string = fs.readdirSync(directory);
         if(files==null){files=[]}
@@ -27,8 +36,14 @@ export class FileSystemService {
         return files;
     }
 
-    isDirectory(localPath : string) {
+    /**
+     * Tests if a local file path is a directory or not
+     * @param localPath local file or directory path
+     * @returns {boolean}
+     */
+    isDirectory(localPath : string) :boolean {
         let ret : boolean = false;
+        //TODO : need to convert to SYNC statSYNC
         fs.stat(localPath, function (err:any,data:any,r:any) {
             if (err) {
                 this.logFileReadingError(err);

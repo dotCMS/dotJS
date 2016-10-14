@@ -1,3 +1,6 @@
+/**
+ * Treeable is the parent class/interface for all dotCMS Objects that can live under a Host/Folder
+ */
 export class Treeable{
     inode : string;
     identifier : string;
