@@ -1,4 +1,5 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
+import {SiteBrowserState} from "../../../core/util/site-browser.state";
 
 @Component({
     template: require('./breadcrumb.html'),
@@ -7,9 +8,15 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class BreadcrumbDemoShowcase {
 
-    constructor() {
+    constructor(private updateService: SiteBrowserState) {}
 
+    ngOnInit() {
+        this.updateService.changeFolder(null);
+        this.updateService.changeFolder('about-us');
+        this.updateService.changeFolder('location');
     }
 
-
+    ngOnDestroy() {
+        this.updateService.changeFolder(null);
+    }
 }

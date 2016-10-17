@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 
 @Component({
     template: require('./site-datatable.html'),
@@ -7,9 +7,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class SiteDatatableDemoShowcase {
 
-    constructor() {
-
-    }
-
+    constructor() {}
 
 }

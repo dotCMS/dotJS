@@ -7,7 +7,6 @@ import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
-import {SiteSelectorComponent} from '../../components/site-selector/site-selector.component';
 import {SiteSelectorService} from "../../components/site-selector/site-selector.service";
 import {HttpClient} from "../../core/util/http.service";
 import {SiteBrowserState} from "../../core/util/site-browser.state";
@@ -38,14 +37,18 @@ import {Logger, LOG_LOGGER_PROVIDERS, Options as LoggerOptions, Level as LoggerL
 import {SettingsService} from "../services/settings.services";
 import {routing} from "./app.routing";
 
-// DOTCMS CUSTOM COMPONENTS
-import {SiteSelectorDemoShowcase} from "../components/site-selector/site-selector";
-import {BreadcrumbDemoShowcase} from "../components/breadcrumb/breadcrumb";
+// DOTJS COMPONENTS
 import {BreadcrumbComponent} from "../../components/breadcrumb/breadcrumb.componet";
-import {SiteDatatableDemoShowcase} from "../components/site-datatable/site-datatable";
 import {SiteDatatableComponent} from "../../components/site-datatable/site-datatable.component";
+import {SiteSelectorComponent} from '../../components/site-selector/site-selector.component';
 import {SiteTreeTableComponent} from "../../components/site-treetable/site-treetable.component";
 import {TreeableDetailComponent} from "../../components/treeable-detail/treeable-detail.component";
+
+
+// SHOWCASE PAGES
+import {BreadcrumbDemoShowcase} from "../components/breadcrumb/breadcrumb";
+import {SiteDatatableDemoShowcase} from "../components/site-datatable/site-datatable";
+import {SiteSelectorDemoShowcase} from "../components/site-selector/site-selector";
 import {SiteTreeTableDemoShowcase} from "../components/site-treetable/site-treetable";
 import {TreeableDetailComponentDemoShowcase} from "../components/treeable-detail/treeable-detail";
 
@@ -77,16 +80,17 @@ import {TreeableDetailComponentDemoShowcase} from "../components/treeable-detail
         AppComponent,
         BreadcrumbComponent,
         BreadcrumbDemoShowcase,
-        SiteDatatableDemoShowcase,
         SiteDatatableComponent,
+        SiteDatatableDemoShowcase,
         SiteSelectorComponent,
         SiteSelectorDemoShowcase,
         SiteTreeTableComponent,
-        TreeableDetailComponent,
         SiteTreeTableDemoShowcase,
+        TreeableDetailComponent,
         TreeableDetailComponentDemoShowcase
     ],
     providers: [
+        Logger,
         {provide: HttpClient, useClass: HttpClient},
         {provide: APP_CONFIG, useValue: DOT_CONFIG},
         {provide: SettingsService, useClass: SettingsService},
@@ -96,7 +100,6 @@ import {TreeableDetailComponentDemoShowcase} from "../components/treeable-detail
         {provide: SiteBrowserService, useClass: SiteBrowserService},
         {provide: SiteSelectorService, useClass: SiteSelectorService},
         {provide: LoggerOptions, useValue: { level: LoggerLevel.INFO } },
-        Logger,
         {provide: LoggerService, useClass: LoggerService},
         {provide: JWTAuthService, useClass: JWTAuthService},
         {provide: SiteBrowserState, useClass: SiteBrowserState},

@@ -1,6 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { SettingsService } from "../services/settings.services";
-import { MenuItem } from 'primeng/primeng';
+import {Component, ViewEncapsulation} from '@angular/core';
+import {MenuItem} from 'primeng/primeng';
+import {SiteBrowserState} from "../../core/util/site-browser.state";
 
 @Component({
     selector: 'my-app',
@@ -11,11 +11,14 @@ import { MenuItem } from 'primeng/primeng';
 export class AppComponent {
     private items: MenuItem[];
 
-    constructor(settingsService: SettingsService) {
+    constructor(private updateService: SiteBrowserState) {
 
     }
 
     ngOnInit() {
+        // For showcase purposes, we initialize a host by default
+        this.updateService.changeSite('demo.dotcms.com');
+
         this.items = [
             {
                 label: 'Breadcrumb',

@@ -1,7 +1,23 @@
-<h1>Treeable Detail Component</h1>
-<code class="language-typescript" pCode>
+<header>
+    <h1 class="page-title">Treeable Detail</h1>
+    <p>Display information for a file or folder selected.</p>
+</header>
 
-    import &#123;AutoCompleteModule&#125; from 'primeng/primeng';
+<section class="demo">
+    <h4>Demo</h4>
+    <treeable-detail></treeable-detail>
+</section>
 
-</code>
-<treeable-detail></treeable-detail>
+<section class="code">
+<pre><code class="language-typescript" pCode>// Import the component and added to the declarations in your @NgModule
+import &#123;TreeableDetailComponent&#125; from 'dotcms-js/components/treeable-detail/treeable-detail.component';
+
+// Add it to the declarations in your @NgModule
+@NgModule(&#123;
+    declarations: [TreeableDetailComponent]
+&#125;)
+
+// Use it in your template
+&lt;treeable-detail&gt;&lt;/treeable-detailr&gt;
+</code></pre>
+</section>
