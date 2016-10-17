@@ -46,6 +46,10 @@ export class AppComponent {
                 label: 'Treeable Detail',
                 routerLink: ['treable-detail']
             },
+            {
+                label: 'Services Documentation',
+                url: './docs'
+            },
         ];
     }
 }
