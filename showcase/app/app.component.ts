@@ -1,6 +1,7 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {MenuItem} from 'primeng/primeng';
 import {SiteBrowserState} from "../../core/util/site-browser.state";
+import {SettingsService} from "../services/settings.services";
 var prismjs = require('../assets/js/prism');
 
 @Component({
@@ -18,7 +19,7 @@ var prismjs = require('../assets/js/prism');
 export class AppComponent {
     private items: MenuItem[];
 
-    constructor(private updateService: SiteBrowserState) {}
+    constructor(private updateService: SiteBrowserState, private settingsService: SettingsService) {}
 
     ngOnInit() {
         // For showcase purposes, we initialize a host by default
