@@ -3,7 +3,7 @@ import {JWTAuthService} from "../../core/util/jwt-auth.service";
 import {SettingsStorageService} from "../../core/util/settings-storage.service";
 
 export class ConfigSettings {
-    siteURL : string = "http://localhost:8080"
+    siteURL : string = "http://demo37.dotcms.com"
     userName : string = "admin@dotcms.com"
     password : string = "admin"
 }
