@@ -2,7 +2,7 @@ import {AppConfig, APP_CONFIG} from "../app.config";
 import {Inject, Injectable} from "@angular/core";
 
 /**
- * Used by the NotificationService to set Desktop Notifications  
+ * Used by the NotificationService to set Desktop Notifications
  */
 declare class Notification {
     constructor(title: string, options?: Object)

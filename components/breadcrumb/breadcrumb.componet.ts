@@ -1,9 +1,14 @@
 import {MenuItem} from "primeng/components/common/api";
-import {Component, Output, Inject} from "@angular/core";
+import {Component, Inject} from "@angular/core";
 import {Subscription} from "rxjs";
 import EventEmitter = NodeJS.EventEmitter;
 import {SiteBrowserState} from "../../core/util/site-browser.state";
 
+/**
+ * The BreadcrumbComponent provides a PrimeNG Component for providing navigation with dotCMS Components
+ * It can respond to the Site or Folder being changed.  In addition the navigation it provides can be clicked on
+ * There is no connection to the other components directly.  The interaction is all managed by the [[SiteBrowserState]]
+ */
 @Component({
     selector: 'breadcrumb',
     template: require('./breadcrumb.html'),
@@ -31,11 +36,19 @@ export class BreadcrumbComponent {
             });
     }
 
+    /**
+     * Called when the [[SiteBrowserState]] Site is changed. This is managed via a Subscription
+     * @param siteName
+     */
     onSiteChange(siteName: string) {
         this.pathItems = [];
         this.addSiteItem(siteName);
     }
 
+    /**
+     * Called when the [[SiteBrowserState]] Folder is changed. This is managed via a Subscription
+     * @param folderName
+     */
     onFolderClick(folderName: string) {
         if (!folderName) {
             return

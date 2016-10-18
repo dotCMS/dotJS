@@ -9,6 +9,12 @@ import {SettingsStorageService} from "../../core/util/settings-storage.service";
 import {NotificationService} from "../../core/util/notification.service";
 import {Folder} from "../../core/treeable/shared/folder.model";
 
+/**
+ * The SiteDataTableComponent is a PrimeNG Component which provides a DataTable to display dotCMS Host/Folder Navigation
+ * The Component is Supscribed to the [[SiteBrowserState]] to monitor when Folders and Site changes occur
+ * In additiont to this it will respond to dragging Files and Folders from the local filesystem and upload them to dotCMS
+ * The SiteDataTableComponent is able to display [[Treeable]] assets
+ */
 @Component({
     selector: 'site-datatable',
     template: require('./site-datatable.html'),
@@ -50,7 +56,12 @@ export class SiteDatatableComponent {
         }, 100)
     }
 
-    //TODO fix any
+    /**
+     * Listens to the double click event.  If the row clicked is a folder the [[SiteBrowserState]] will be called to
+     * change the folder. This will cause this component to load the new folder and of course anyone else
+     * subscribed to the [[SiteBrowserState]] folder state
+     * @param event
+     */
     doubleClick(event : any){
         if(event.data.type!='folder'){return;}
         let pathName: string = (<string>event.data.path);
@@ -66,16 +77,28 @@ export class SiteDatatableComponent {
         }, 100)
     }
 
+    /**
+     * On single click of a row this function will update the [[SiteBrowserState]] selected [[Treeable]]
+     * @param event
+     */
     selectTreeable(event : any){
         this.updateService.changeTreeable(event.data);
     }
 
+    /**
+     * This function is called when the [[SiteBrowserState]] uri is changed
+     * @param uri
+     */
     loadFolder(uri : string) {
         this.siteBrowserService.getTreeableAssetsUnderFolder(this.siteName,uri)
             .subscribe((treeables: Treeable[]) => this.treeables=treeables)
         setTimeout(() => {}, 100);
     }
 
+    /**
+     * This function is called when the [[SiteBrowserState]] Site is changed
+     * @param siteName
+     */
     loadSite(siteName: string) {
         this.siteName = siteName;
         this.siteBrowserService.getTreeableAssetsUnderSite(siteName)
@@ -87,6 +110,11 @@ export class SiteDatatableComponent {
         // this.dropzoneStylesVisible = true;
     }
 
+    /**
+     * Deals with the drop of 1 to many files and folders from the filesystem
+     * @param e
+     * @returns {boolean}
+     */
     handleDrop(e : any) {
         e.preventDefault();
         let pathToUploadTo: string;
