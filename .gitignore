@@ -9,6 +9,7 @@ core/**/*.js
 components/**/*.js
 showcase/**/*.js
 !showcase/config/*.js
+!showcase/assets/js/*.js
 dotJS.js
 *.map
 
