@@ -3,6 +3,7 @@ import {NotificationService} from "./notification.service";
 import {LoggerService} from "./logger.service";
 import {Http, Headers, Response, RequestMethod, RequestOptions} from '@angular/http';
 import {Observable} from "rxjs";
+import {SettingsStorageService} from "./settings-storage.service";
 
 /**
  * Service for managing JWT Auth Token from dotCMS Site/Host
@@ -14,7 +15,8 @@ export class JWTAuthService{
     (
         private http: Http,
         private notificationService: NotificationService,
-        private loggerService: LoggerService
+        private loggerService: LoggerService,
+        private settingsStorageService: SettingsStorageService
     )
     {}
 
@@ -26,15 +28,29 @@ export class JWTAuthService{
      * @returns {Observable<R>} String return for the token
      */
     getJWT(siteURL:string,username:string,password:string):Observable<string> {
-        console.log(siteURL);
-        var data = {
+        let data = {
             user: username,
             password: password,
             expirationDays: 30
-        }
+        };
         return this.doPostAuth(siteURL,data)
             .map((res:Response) => this.extractJWT(res))
             .catch(error => this.handleError(error));
+    }
+
+    /**
+     * Will login and save the Auth Token to local storage
+     * @param siteURL
+     * @param username
+     * @param password
+     * @returns {Observable<R>}
+     */
+    login(siteURL:string,username:string,password:string):Observable<string> {
+        return this.getJWT(siteURL, username, password)
+            .map(token => {
+                this.settingsStorageService.storeSettings(siteURL, token);
+                return token;
+            });
     }
 
     private doPostAuth(siteUrl:string, data:any) : Observable<Response>{

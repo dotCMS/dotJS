@@ -1,7 +1,7 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {MenuItem} from 'primeng/primeng';
 import {SiteBrowserState} from "../../core/util/site-browser.state";
-import {SettingsService} from "../services/settings.services";
+import {JWTAuthService} from "../../core/util/jwt-auth.service";
 var prismjs = require('../assets/js/prism');
 
 @Component({
@@ -19,7 +19,12 @@ var prismjs = require('../assets/js/prism');
 export class AppComponent {
     private items: MenuItem[];
 
-    constructor(private updateService: SiteBrowserState, private settingsService: SettingsService) {
+    constructor(private updateService: SiteBrowserState, authService: JWTAuthService) {
+        authService.login("http://demo37.dotcms.com", "admin@dotcms.com", "admin").subscribe(token => {
+            console.log('Login successfully');
+        }, (err) => {
+            console.log('Error on login', err);
+        });
     }
 
     ngOnInit() {
