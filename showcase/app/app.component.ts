@@ -19,7 +19,8 @@ var prismjs = require('../assets/js/prism');
 export class AppComponent {
     private items: MenuItem[];
 
-    constructor(private updateService: SiteBrowserState, private settingsService: SettingsService) {}
+    constructor(private updateService: SiteBrowserState, private settingsService: SettingsService) {
+    }
 
     ngOnInit() {
         // For showcase purposes, we initialize a host by default
@@ -45,11 +46,7 @@ export class AppComponent {
             {
                 label: 'Treeable Detail',
                 routerLink: ['treable-detail']
-            },
-            {
-                label: 'Services Documentation',
-                url: './docs'
-            },
+            }
         ];
     }
 }

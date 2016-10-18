@@ -67,3 +67,11 @@ body {
 .header h1 a {
     font-size: 24px;
 }
+
+.header nav {
+    color: #fff
+}
+
+.header nav .separator {
+    margin: 0 10px;
+}
