@@ -6,6 +6,7 @@ dotcms-js.js
 core/**/*.js
 components/**/*.js
 showcase/**/*.js
+!showcase/assets/js/*.js
 *.map
 
 *.class
