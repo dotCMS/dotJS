@@ -9,8 +9,8 @@
     "build": "webpack --progress --profile --colors --display-error-details --display-cached",
     "watch": "webpack --watch --progress --profile --colors --display-error-details --display-cached",
     "show": "webpack-dev-server --config showcase/config/webpack.dev.js --inline --progress --port 7070",
-    "show-build": "rimraf dist && webpack --config showcase/config/webpack.prod.js --progress --profile --bail",
-    "show-deploy": "git-directory-deploy --directory showcase/dist --branch gh-pages",
+    "show-build": "rimraf showcase/dist && webpack --config showcase/config/webpack.prod.js --progress --profile --bail",
+    "show-deploy": "sh ./publish-to-dotcms.sh",
     "deploy-public": "npm run show-build; npm run build; npm run show-deploy"
   },
   "author": "dotCMS",

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule } from "@angular/forms";
 import { HttpModule, JsonpModule } from '@angular/http';
-
+import {LocationStrategy, HashLocationStrategy} from "@angular/common";
 
 
 import { AppComponent } from './app.component';
@@ -105,6 +105,7 @@ import {TreeableDetailComponentDemoShowcase} from "../components/treeable-detail
         {provide: SiteBrowserState, useClass: SiteBrowserState},
         {provide: SettingsStorageService, useClass: SettingsStorageService},
         {provide: LocalStoreService, useClass: LocalStoreService},
+        {provide: LocationStrategy, useClass: HashLocationStrategy}
     ],
     bootstrap: [ AppComponent ]
 })

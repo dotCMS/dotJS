@@ -34,3 +34,4 @@ releases
 
 .DS_Store
 .idea/
+publish-to-dotcms.sh
