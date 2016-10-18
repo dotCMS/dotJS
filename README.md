@@ -37,7 +37,7 @@ import {SiteBrowserState} from "../../core/util/site-browser.state";
 })
 ```
 
-### Authtorization
+### Authorization
 In order to start using the components you need to make sure you have a Auth Token. To get it we provide a ```login``` method in the ```JWTAuthService``` class.
 
 If the login it's succefull the ```login``` method will save an Auth Token to the localStorage in the browser so other services can use it, more info in our [documentation](http://dotcms.com/dotcms-js/docs/).
