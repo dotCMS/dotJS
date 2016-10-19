@@ -4,7 +4,7 @@ module.exports = function (config) {
     config.set({
         browsers: [ 'Chrome' ],
         autoWatch: false,
-        singleRun: true, //just run once by default
+        singleRun: false, //just run once by default
         frameworks: [ 'jasmine' ], // test frameworks
         port: 9876,
         colors: true,
@@ -19,6 +19,8 @@ module.exports = function (config) {
             'test/*_test.js': ['webpack', 'sourcemap'],
             'test/**/*_test.js': ['webpack', 'sourcemap']
         },
+
+        reporters: ['kjhtml'],
 
         // reporters: [ 'mocha' ], //report results in this format
         webpack: {
@@ -40,6 +42,7 @@ module.exports = function (config) {
             'karma-jasmine',
             'karma-sourcemap-loader',
             'karma-chrome-launcher',
+            'karma-jasmine-html-reporter'
         ]
     });
 };
