@@ -2,43 +2,52 @@ var webpack = require('webpack');
 
 module.exports = function (config) {
     config.set({
-        browsers: [ 'Chrome' ],
         autoWatch: false,
-        singleRun: false, //just run once by default
-        frameworks: [ 'jasmine' ], // test frameworks
-        port: 9876,
+        basePath: '',
+        browsers: [ 'Chrome' ],
         colors: true,
+        frameworks: [ 'jasmine' ], // test frameworks
         logLevel: config.LOG_INFO,
+        port: 9876,
+        reporters: ['kjhtml'],
+        singleRun: false, //just run once by default
+
         files: [
-            {pattern: 'test/*_test.js', watched: false},
-            {pattern: 'test/**/*_test.js', watched: false}
-            // each file acts as entry point for the webpack configuration
+            {
+                pattern: './spec-bundle.js', watched: false
+            }
         ],
 
         preprocessors: {
-            'test/*_test.js': ['webpack', 'sourcemap'],
-            'test/**/*_test.js': ['webpack', 'sourcemap']
+            './spec-bundle.js': ['webpack', 'sourcemap']
         },
 
-        reporters: ['kjhtml'],
-
-        // reporters: [ 'mocha' ], //report results in this format
         webpack: {
             devtool: 'inline-source-map',
+            resolve: {
+                extensions: ['', '.ts', '.js']
+
+            },
             module: {
                 loaders: [
                     { test: /\.ts$/, loader: 'ts' }
                 ]
+            },
+            node: {
+                fs: "empty"
             }
         },
+
         webpackMiddleware: {
             stats: 'errors-only'
         },
+
         webpackServer: {
             noInfo: true
         },
+
         plugins: [
-            'karma-webpack',
+            require('karma-webpack'),
             'karma-jasmine',
             'karma-sourcemap-loader',
             'karma-chrome-launcher',
