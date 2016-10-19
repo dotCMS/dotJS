@@ -12,26 +12,28 @@ npm install dotcms-js --save
 ### Import Services
 
 ```typescript
-import {FileSystemService} from "../../core/util/filesystem.service";
-import {HttpClient} from "../../core/util/http.service";
-import {JWTAuthService} from "../../core/util/jwt-auth.service";
-import {LocalStoreService} from "../../core/util/local-store.service";
-import {LoggerService} from "../../core/util/logger.service";
-import {NotificationService} from "../../core/util/notification.service";
-import {SettingsStorageService} from "../../core/util/settings-storage.service";
-import {SiteBrowserService} from "../../core/util/site-browser.service";
-import {SiteBrowserState} from "../../core/util/site-browser.state";
+import {APP_CONFIG, DOT_CONFIG} from "dotcms-js/core/app.config";
+import {FileSystemService} from "dotcms-js/core/util/filesystem.service";
+import {HttpClient} from "dotcms-js/core/util/http.service";
+import {JWTAuthService} from "dotcms-js/core/util/jwt-auth.service";
+import {LocalStoreService} from "dotcms-js/core/util/local-store.service";
+import {LoggerService} from "dotcms-js/core/util/logger.service";
+import {NotificationService} from "dotcms-js/core/util/notification.service";
+import {SettingsStorageService} from "dotcms-js/core/util/settings-storage.service";
+import {SiteBrowserService} from "dotcms-js/core/util/site-browser.service";
+import {SiteBrowserState} from "dotcms-js/core/util/site-browser.state";
 
 @NgModule({
     providers: [
-        {provide: FileSystemService, useClass: FileSystemService}
-        {provide: HttpClient, useClass: HttpClient}
-        {provide: JWTAuthService, useClass: JWTAuthService}
-        {provide: LocalStoreService, useClass: LocalStoreService}
-        {provide: LoggerService, useClass: LoggerService}
-        {provide: NotificationService, useClass: NotificationService}
-        {provide: SettingsStorageService, useClass: SettingsStorageService}
-        {provide: SiteBrowserService, useClass: SiteBrowserService}
+        {provide: APP_CONFIG, useValue: DOT_CONFIG},
+        {provide: FileSystemService, useClass: FileSystemService},
+        {provide: HttpClient, useClass: HttpClient},
+        {provide: JWTAuthService, useClass: JWTAuthService},
+        {provide: LocalStoreService, useClass: LocalStoreService},
+        {provide: LoggerService, useClass: LoggerService},
+        {provide: NotificationService, useClass: NotificationService},
+        {provide: SettingsStorageService, useClass: SettingsStorageService},
+        {provide: SiteBrowserService, useClass: SiteBrowserService},
         {provide: SiteBrowserState, useClass: SiteBrowserState}
     ],
 })
