@@ -12,7 +12,7 @@
     "show-build": "rimraf showcase/dist && webpack --config showcase/config/webpack.prod.js --progress --profile --bail",
     "show-deploy": "sh ./publish-to-dotcms.sh",
     "deploy-public": "npm run show-build; npm run build; npm run show-deploy",
-    "test": "karma start --reporters kjhtml"
+    "test": "karma start --single-run"
   },
   "author": "dotCMS",
   "license": "GPL 3",
@@ -32,6 +32,8 @@
     "karma-chrome-launcher": "^2.0.0",
     "karma-jasmine": "^1.0.2",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-mocha-reporter": "^2.2.0",
+    "karma-remap-coverage": "^0.1.2",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.8.0",
     "null-loader": "^0.1.1",
