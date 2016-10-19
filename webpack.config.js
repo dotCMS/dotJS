@@ -55,25 +55,6 @@ module.exports = {
         ]
     },
 
-    files: [
-        {pattern: 'test/*_test.js', watched: false},
-        {pattern: 'test/**/*_test.js', watched: false}
-        // each file acts as entry point for the webpack configuration
-    ],
-
-    preprocessors: {
-        'test/*_test.js': ['webpack', 'sourcemap'],
-        'test/**/*_test.js': ['webpack', 'sourcemap']
-    },
-
-    webpack: {
-        devtool: 'inline-source-map'
-    },
-
-    webpackMiddleware: {
-        stats: 'errors-only'
-    },
-
     plugins: [
         new CommonsChunkPlugin({names: ['@angular', 'common'], minChunks: Infinity}),
         new TypedocWebpackPlugin({

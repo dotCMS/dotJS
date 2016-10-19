@@ -5,6 +5,8 @@ import {Http, Headers, Response, RequestMethod, RequestOptions} from '@angular/h
 import {Observable} from "rxjs";
 import {SettingsStorageService} from "./settings-storage.service";
 
+import 'rxjs/add/operator/map';
+
 /**
  * Service for managing JWT Auth Token from dotCMS Site/Host
  */

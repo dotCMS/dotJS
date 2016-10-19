@@ -1,6 +1,6 @@
 {
   "name": "dotcms-js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Set of components and services which allow you to connect to use data from a dotCMS installation",
   "scripts": {
     "tsc": "tsc",
@@ -11,7 +11,8 @@
     "show": "webpack-dev-server --config showcase/config/webpack.dev.js --inline --progress --port 7070",
     "show-build": "rimraf showcase/dist && webpack --config showcase/config/webpack.prod.js --progress --profile --bail",
     "show-deploy": "sh ./publish-to-dotcms.sh",
-    "deploy-public": "npm run show-build; npm run build; npm run show-deploy"
+    "deploy-public": "npm run show-build; npm run build; npm run show-deploy",
+    "test": "karma start --single-run"
   },
   "author": "dotCMS",
   "license": "GPL 3",
@@ -25,7 +26,11 @@
     "git-directory-deploy": "^1.5.1",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.15.0",
+    "jasmine": "^2.5.2",
     "json-loader": "^0.5.4",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.0.2",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.8.0",
     "null-loader": "^0.1.1",
