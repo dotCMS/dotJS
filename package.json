@@ -1,6 +1,6 @@
 {
   "name": "dotcms-js",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Set of components and services which allow you to connect to use data from a dotCMS installation",
   "scripts": {
     "tsc": "tsc",
@@ -17,6 +17,14 @@
   "author": "dotCMS",
   "license": "GPL 3",
   "devDependencies": {
+    "@angular/common": "^2.0.0",
+    "@angular/compiler": "^2.0.0",
+    "@angular/core": "^2.0.0",
+    "@angular/forms": "^2.0.0",
+    "@angular/http": "^2.0.0",
+    "@angular/platform-browser": "^2.0.0",
+    "@angular/platform-browser-dynamic": "^2.0.0",
+    "@angular/router": "^3.0.0",
     "@types/selenium-webdriver": "^2.53.1",
     "angular2-template-loader": "^0.4.0",
     "awesome-typescript-loader": "^2.2.4",
@@ -54,14 +62,6 @@
     "webpack-merge": "^0.14.0"
   },
   "dependencies": {
-    "@angular/common": "2.0.0",
-    "@angular/compiler": "2.0.0",
-    "@angular/core": "2.0.0",
-    "@angular/forms": "2.0.0",
-    "@angular/http": "2.0.0",
-    "@angular/platform-browser": "2.0.0",
-    "@angular/platform-browser-dynamic": "2.0.0",
-    "@angular/router": "3.0.0",
     "angular2-logger": "^0.5.0",
     "core-js": "^2.4.1",
     "es6-shim": "^0.35.1",

@@ -86,6 +86,11 @@ import {BreadcrumbComponent} from "dotcms-js/components/breadcrumb/breadcrumb.co
 
 ## Changelog
 
+### 0.0.4
+- Update npmingnore
+- Altered the AppConfig
+- Updated package.json to move ng deps to devdeps so there is no collision with ng libs for other apps
+
 ### 0.0.3
 - Update npmingnore
 
