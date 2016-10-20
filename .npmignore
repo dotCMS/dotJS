@@ -28,3 +28,10 @@ showcase
 .DS_Store
 .idea/
 publish-to-dotcms.sh
+
+tsconfig.json
+webpack.config.js
+karma.config.js
+.gitignore
+spec-bundle.js
+typings.json
