@@ -86,6 +86,9 @@ import {BreadcrumbComponent} from "dotcms-js/components/breadcrumb/breadcrumb.co
 
 ## Changelog
 
+### 0.0.3
+- Update npmingnore
+
 ### 0.0.2
 - Add login method to JWTAuthService
 - Update showcase login.

@@ -1,6 +1,6 @@
 {
   "name": "dotcms-js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Set of components and services which allow you to connect to use data from a dotCMS installation",
   "scripts": {
     "tsc": "tsc",
