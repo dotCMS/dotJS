@@ -36,7 +36,13 @@ export class JWTAuthService{
             expirationDays: 30
         };
         return this.doPostAuth(siteURL,data)
-            .map((res:Response) => this.extractJWT(res))
+            .map((res:Response) => {
+                if (res.status < 200 || res.status >= 300) {
+                    this.handleError(res);
+                    throw new Error('This request has failed ' + res.status);
+                }
+                return this.extractJWT(res)
+            })
             .catch(error => this.handleError(error));
     }
 
