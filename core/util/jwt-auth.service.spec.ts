@@ -2,7 +2,6 @@ import {inject, TestBed} from '@angular/core/testing';
 import {BaseRequestOptions, ConnectionBackend, Http, ResponseOptions, Response} from '@angular/http';
 import {MockBackend, MockConnection} from '@angular/http/testing';
 
-import {APP_CONFIG, DOT_CONFIG} from '../app.config';
 import {FileSystemService} from './filesystem.service';
 import {JWTAuthService} from './jwt-auth.service'
 import {LocalStoreService} from './local-store.service';
@@ -11,6 +10,7 @@ import {Logger} from 'angular2-logger/core';
 import {NotificationService} from './notification.service';
 import {SettingsStorageService} from './settings-storage.service';
 import {SiteBrowserState} from './site-browser.state';
+import {AppConfig} from "../app.config";
 
 describe('JWT Auth Service', () => {
 
@@ -27,7 +27,7 @@ describe('JWT Auth Service', () => {
                     },
                     deps: [MockBackend, BaseRequestOptions]
                 },
-                {provide: APP_CONFIG, useValue: DOT_CONFIG},
+                {provide: AppConfig, useValue: AppConfig},
                 {provide: FileSystemService, useClass: FileSystemService},
                 {provide: JWTAuthService, useClass: JWTAuthService},
                 {provide: LoggerService, useClass: LoggerService},

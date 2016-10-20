@@ -1,6 +1,6 @@
 import {LocalStoreService} from "./local-store.service";
 import {DotSettings} from "./settings.model";
-import {APP_CONFIG, AppConfig} from "../app.config";
+import {AppConfig} from "../app.config";
 import {Inject, Injectable} from "@angular/core";
 import {SiteBrowserState} from "./site-browser.state";
 
@@ -13,7 +13,7 @@ export class SettingsStorageService {
     configKey : string;
 
     constructor(
-        @Inject(APP_CONFIG) config: AppConfig,
+        private config: AppConfig,
         private localStoreService : LocalStoreService,
         private siteBrowserState : SiteBrowserState
     ) {

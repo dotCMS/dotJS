@@ -8,7 +8,6 @@ import {LocationStrategy, HashLocationStrategy} from "@angular/common";
 import { AppComponent } from './app.component';
 
 import {SiteSelectorService} from "../../components/site-selector/site-selector.service";
-import {APP_CONFIG, DOT_CONFIG} from "../../core/app.config";
 import {BreadcrumbModule} from "primeng/components/breadcrumb/breadcrumb";
 import {ButtonModule} from "primeng/components/button/button";
 import {CodeHighlighterModule} from 'primeng/components/codehighlighter/codehighlighter';
@@ -30,7 +29,7 @@ import {NotificationService} from "../../core/util/notification.service";
 import {SettingsStorageService} from "../../core/util/settings-storage.service";
 import {SiteBrowserService} from "../../core/util/site-browser.service";
 import {SiteBrowserState} from "../../core/util/site-browser.state";
-
+import {AppConfig} from "../../core/app.config";
 
 
 import {Logger, LOG_LOGGER_PROVIDERS, Options as LoggerOptions, Level as LoggerLevel} from "angular2-logger/core";
@@ -91,7 +90,7 @@ import {TreeableDetailComponentDemoShowcase} from "../components/treeable-detail
     providers: [
         Logger,
         {provide: HttpClient, useClass: HttpClient},
-        {provide: APP_CONFIG, useValue: DOT_CONFIG},
+        {provide: AppConfig, useValue: AppConfig},
         {provide: NotificationService, useClass: NotificationService},
         {provide: FileSystemService, useClass: FileSystemService},
         {provide: SiteTreetableService, useClass: SiteTreetableService},

@@ -57,6 +57,26 @@ module.exports = function (config) {
             module: {
                 loaders: [
                     { test: /\.ts$/, loader: 'ts' }
+                ],
+                rules: [
+
+                    /**
+                     * Instruments JS files with Istanbul for subsequent code coverage reporting.
+                     * Instrument only testing sources.
+                     *
+                     * See: https://github.com/deepsweet/istanbul-instrumenter-loader
+                     */
+                    {
+                        enforce: 'post',
+                        test: /\.(js|ts)$/,
+                        loader: 'istanbul-instrumenter-loader',
+                        include: './core',
+                        exclude: [
+                            /\.(e2e|spec)\.ts$/,
+                            /node_modules/
+                        ]
+                    }
+
                 ]
             },
             node: {

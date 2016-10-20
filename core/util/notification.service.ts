@@ -1,4 +1,4 @@
-import {AppConfig, APP_CONFIG} from "../app.config";
+import {AppConfig} from "../app.config";
 import {Inject, Injectable} from "@angular/core";
 
 /**
@@ -20,7 +20,7 @@ export class NotificationService {
 
     constructor
     (
-        @Inject(APP_CONFIG) config: AppConfig
+        private config: AppConfig
     )
     {
         this.iconPath = config.iconPath
