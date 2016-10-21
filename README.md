@@ -31,18 +31,18 @@ import {
 // Add it to the declarations in your @NgModule
 @NgModule({
     providers: [
-        {provide: AppConfig, useClass: AppConfig}
-        {provide: FileSystemService, useClass: FileSystemService}
-        {provide: HttpClient, useClass: HttpClient}
-        {provide: JWTAuthService, useClass: JWTAuthService}
-        {provide: LocalStoreService, useClass: LocalStoreService}
-        {provide: LoggerService, useClass: LoggerService}
-        {provide: NotificationService, useClass: NotificationService}
-        {provide: SettingsStorageService, useClass: SettingsStorageService}
-        {provide: SiteBrowserService, useClass: SiteBrowserService}
-        {provide: SiteBrowserState, useClass: SiteBrowserState}
-        {provide: SiteSelectorService, useClass: SiteSelectorService}
-        {provide: SiteTreetableService, useClass: SiteTreetableService}
+        {provide: AppConfig, useClass: AppConfig},
+        {provide: FileSystemService, useClass: FileSystemService},
+        {provide: HttpClient, useClass: HttpClient},
+        {provide: JWTAuthService, useClass: JWTAuthService},
+        {provide: LocalStoreService, useClass: LocalStoreService},
+        {provide: LoggerService, useClass: LoggerService},
+        {provide: NotificationService, useClass: NotificationService},
+        {provide: SettingsStorageService, useClass: SettingsStorageService},
+        {provide: SiteBrowserService, useClass: SiteBrowserService},
+        {provide: SiteBrowserState, useClass: SiteBrowserState},
+        {provide: SiteSelectorService, useClass: SiteSelectorService},
+        {provide: SiteTreetableService, useClass: SiteTreetableService},
     ]
 })
 ```
