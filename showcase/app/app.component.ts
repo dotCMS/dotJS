@@ -33,6 +33,10 @@ export class AppComponent {
 
         this.items = [
             {
+                label: 'Introduction',
+                routerLink: ['']
+            },
+            {
                 label: 'Breadcrumb',
                 routerLink: ['breadcrumb']
             },

@@ -1,4 +1,4 @@
-import {Component, Inject} from "@angular/core";
+import {Component, Inject, NgModule} from "@angular/core";
 import {Message, TreeNode} from "primeng/components/common/api";
 import {Subscription} from "rxjs";
 import {SiteTreetableService} from "./site-treetable.service";
@@ -6,6 +6,8 @@ import {SiteBrowserState} from "../../core/util/site-browser.state";
 import {FileSystemService} from "../../core/util/filesystem.service";
 import {LoggerService} from "../../core/util/logger.service";
 import {NotificationService} from "../../core/util/notification.service";
+import {CommonModule} from "@angular/common";
+import {TreeTableModule} from "primeng/components/treetable/treetable";
 
 let fs = require('fs');
 
@@ -116,3 +118,10 @@ export class SiteTreeTableComponent {
         }, 100)
     }
 }
+
+@NgModule({
+    imports: [CommonModule, TreeTableModule],
+    exports: [SiteTreeTableComponent],
+    declarations: [SiteTreeTableComponent]
+})
+export class DotcmsSiteTreeTableModule { }

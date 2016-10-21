@@ -1,55 +1,46 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule }  from '@angular/platform-browser';
-import { FormsModule } from "@angular/forms";
-import { HttpModule, JsonpModule } from '@angular/http';
+import {BrowserModule}  from '@angular/platform-browser';
+import {FormsModule} from "@angular/forms";
+import {HttpModule, JsonpModule} from '@angular/http';
 import {LocationStrategy, HashLocationStrategy} from "@angular/common";
-
-
-import { AppComponent } from './app.component';
-
-import {SiteSelectorService} from "../../components/site-selector/site-selector.service";
-import {BreadcrumbModule} from "primeng/components/breadcrumb/breadcrumb";
-import {ButtonModule} from "primeng/components/button/button";
-import {CodeHighlighterModule} from 'primeng/components/codehighlighter/codehighlighter';
-import {DataTableModule} from "primeng/components/datatable/datatable";
-import {DragDropModule} from "primeng/components/dragdrop/dragdrop";
-import {InputTextModule} from "primeng/components/inputtext/inputtext";
-import {MenuModule} from "primeng/components/menu/menu";
-import {PasswordModule} from "primeng/components/password/password";
-import {SiteTreetableService} from "../../components/site-treetable/site-treetable.service";
-import {TieredMenuModule} from 'primeng/primeng';
-import {TreeTableModule, SharedModule, TreeModule, AutoCompleteModule} from 'primeng/primeng';
-
-import {FileSystemService} from "../../core/util/filesystem.service";
-import {HttpClient} from "../../core/util/http.service";
-import {JWTAuthService} from "../../core/util/jwt-auth.service";
-import {LocalStoreService} from "../../core/util/local-store.service";
-import {LoggerService} from "../../core/util/logger.service";
-import {NotificationService} from "../../core/util/notification.service";
-import {SettingsStorageService} from "../../core/util/settings-storage.service";
-import {SiteBrowserService} from "../../core/util/site-browser.service";
-import {SiteBrowserState} from "../../core/util/site-browser.state";
-import {AppConfig} from "../../core/app.config";
-
-
 import {Logger, LOG_LOGGER_PROVIDERS, Options as LoggerOptions, Level as LoggerLevel} from "angular2-logger/core";
+import {NgModule} from '@angular/core';
+
+import {AppComponent} from './app.component';
 import {routing} from "./app.routing";
 
-// DOTJS COMPONENTS
-import {BreadcrumbComponent} from "../../components/breadcrumb/breadcrumb.componet";
-import {SiteDatatableComponent} from "../../components/site-datatable/site-datatable.component";
-import {SiteSelectorComponent} from '../../components/site-selector/site-selector.component';
-import {SiteTreeTableComponent} from "../../components/site-treetable/site-treetable.component";
-import {TreeableDetailComponent} from "../../components/treeable-detail/treeable-detail.component";
+// DOTJS SERVICES
+import {
+    AppConfig,
+    FileSystemService,
+    HttpClient,
+    JWTAuthService,
+    LocalStoreService,
+    LoggerService,
+    NotificationService,
+    SettingsStorageService,
+    SiteBrowserService,
+    SiteBrowserState,
+    SiteSelectorService,
+    SiteTreetableService,
+} from "../../dotcms-js";
 
+// DOTJS MODULES
+import {
+    DotcmsBreadcrumbModule,
+    DotcmsSiteDatatableModule,
+    DotcmsSiteSelectorModule,
+    DotcmsSiteTreeTableModule,
+    DotcmsTreeableDetailModule,
+} from "../../dotcms-js";
 
 // SHOWCASE PAGES
 import {BreadcrumbDemoShowcase} from "../components/breadcrumb/breadcrumb";
+import {IntroDemoShowcase} from "../components/intro/intro";
 import {SiteDatatableDemoShowcase} from "../components/site-datatable/site-datatable";
 import {SiteSelectorDemoShowcase} from "../components/site-selector/site-selector";
 import {SiteTreeTableDemoShowcase} from "../components/site-treetable/site-treetable";
 import {TreeableDetailComponentDemoShowcase} from "../components/treeable-detail/treeable-detail";
-
+import {TieredMenuModule, CodeHighlighterModule} from 'primeng/primeng';
 
 @NgModule({
     imports: [
@@ -58,33 +49,24 @@ import {TreeableDetailComponentDemoShowcase} from "../components/treeable-detail
         HttpModule,
         JsonpModule,
 
-        TreeTableModule,
-        SharedModule,
-        TreeModule,
-        AutoCompleteModule,
-        BreadcrumbModule,
-        MenuModule,
-        DragDropModule,
-        DataTableModule,
-        InputTextModule,
-        ButtonModule,
-        PasswordModule,
-        CodeHighlighterModule,
+        DotcmsBreadcrumbModule,
+        DotcmsSiteDatatableModule,
+        DotcmsSiteSelectorModule,
+        DotcmsSiteTreeTableModule,
+        DotcmsTreeableDetailModule,
+
         TieredMenuModule,
+        CodeHighlighterModule,
 
         routing,
     ],
     declarations: [
         AppComponent,
-        BreadcrumbComponent,
         BreadcrumbDemoShowcase,
-        SiteDatatableComponent,
+        IntroDemoShowcase,
         SiteDatatableDemoShowcase,
-        SiteSelectorComponent,
         SiteSelectorDemoShowcase,
-        SiteTreeTableComponent,
         SiteTreeTableDemoShowcase,
-        TreeableDetailComponent,
         TreeableDetailComponentDemoShowcase
     ],
     providers: [

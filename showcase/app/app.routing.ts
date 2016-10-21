@@ -1,6 +1,7 @@
 import {AppComponent} from './app.component';
 import {Routes, RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
+import {IntroDemoShowcase} from "../components/intro/intro";
 import {SiteSelectorDemoShowcase} from "../components/site-selector/site-selector";
 import {BreadcrumbDemoShowcase} from "../components/breadcrumb/breadcrumb";
 import {SiteTreeTableDemoShowcase} from "../components/site-treetable/site-treetable";
@@ -10,9 +11,7 @@ import {TreeableDetailComponentDemoShowcase} from "../components/treeable-detail
 const appRoutes: Routes = [
     {
         path: '',
-        redirectTo: 'breadcrumb',
-        pathMatch: 'full'
-
+        component: IntroDemoShowcase,
     },
     {
         path: 'breadcrumb',

@@ -1,4 +1,4 @@
-import {Component, Inject} from "@angular/core";
+import {Component, Inject, NgModule} from "@angular/core";
 
 import 'rxjs/add/operator/map';
 import {SiteSelectorService} from "./site-selector.service";
@@ -6,6 +6,11 @@ import {Site} from "../../core/treeable/shared/site.model";
 import {HttpClient} from "../../core/util/http.service";
 import {SiteBrowserState} from "../../core/util/site-browser.state";
 import {NotificationService} from "../../core/util/notification.service";
+import {CommonModule} from "@angular/common";
+import {AutoCompleteModule} from "primeng/components/autocomplete/autocomplete";
+import {InputTextModule} from "primeng/components/inputtext/inputtext";
+import {FormsModule} from "@angular/forms";
+
 
 @Inject('updateService')
 @Component({
@@ -59,3 +64,10 @@ export class SiteSelectorComponent {
         }
     }
 }
+
+@NgModule({
+    imports: [CommonModule, FormsModule, InputTextModule, AutoCompleteModule],
+    exports: [SiteSelectorComponent],
+    declarations: [SiteSelectorComponent]
+})
+export class DotcmsSiteSelectorModule { }

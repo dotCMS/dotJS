@@ -19,7 +19,7 @@ body {
 }
 
 .content header h1,
-.content header p {
+.content header p:last-child {
     margin: 0
 }
 

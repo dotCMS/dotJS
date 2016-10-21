@@ -1,8 +1,11 @@
-import {Component} from "@angular/core";
+import {Component, NgModule} from "@angular/core";
 import {Subscription} from "rxjs";
 import {Treeable} from "../../core/treeable/shared/treeable.model";
 import {SiteBrowserState} from "../../core/util/site-browser.state";
 import {SettingsStorageService} from "../../core/util/settings-storage.service";
+import {CommonModule} from "@angular/common";
+import {InputTextModule} from "primeng/components/inputtext/inputtext";
+import {FormsModule} from '@angular/forms'
 @Component({
     selector: 'treeable-detail',
     template: require('./treeable-detail.html'),
@@ -33,3 +36,10 @@ export class TreeableDetailComponent {
     }
 
 }
+
+@NgModule({
+    imports: [CommonModule, FormsModule, InputTextModule],
+    exports: [TreeableDetailComponent],
+    declarations: [TreeableDetailComponent]
+})
+export class DotcmsTreeableDetailModule { }

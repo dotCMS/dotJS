@@ -1,8 +1,10 @@
 import {MenuItem} from "primeng/components/common/api";
-import {Component, Inject} from "@angular/core";
+import {Component, Inject, NgModule} from "@angular/core";
 import {Subscription} from "rxjs";
 import EventEmitter = NodeJS.EventEmitter;
 import {SiteBrowserState} from "../../core/util/site-browser.state";
+import {BreadcrumbModule} from "primeng/components/breadcrumb/breadcrumb";
+import {CommonModule} from "@angular/common";
 
 /**
  * The BreadcrumbComponent provides a PrimeNG Component for providing navigation with dotCMS Components
@@ -105,3 +107,10 @@ export class BreadcrumbComponent {
     }
 
 }
+
+@NgModule({
+    imports: [CommonModule, BreadcrumbModule],
+    exports: [BreadcrumbComponent],
+    declarations: [BreadcrumbComponent]
+})
+export class DotcmsBreadcrumbModule { }

@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, NgModule} from "@angular/core";
 import {Subscription} from "rxjs";
 import {Treeable} from "../../core/treeable/shared/treeable.model";
 import {SiteBrowserState} from "../../core/util/site-browser.state";
@@ -8,6 +8,8 @@ import {SiteBrowserService} from "../../core/util/site-browser.service";
 import {SettingsStorageService} from "../../core/util/settings-storage.service";
 import {NotificationService} from "../../core/util/notification.service";
 import {Folder} from "../../core/treeable/shared/folder.model";
+import {CommonModule} from "@angular/common";
+import {DataTableModule} from "primeng/components/datatable/datatable";
 
 /**
  * The SiteDataTableComponent is a PrimeNG Component which provides a DataTable to display dotCMS Host/Folder Navigation
@@ -140,3 +142,10 @@ export class SiteDatatableComponent {
     }
 
 }
+
+@NgModule({
+    imports: [CommonModule, DataTableModule],
+    exports: [SiteDatatableComponent],
+    declarations: [SiteDatatableComponent]
+})
+export class DotcmsSiteDatatableModule { }
