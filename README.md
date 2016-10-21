@@ -9,33 +9,41 @@ npm install dotcms-js --save
 
 ## Usage
 
-### Import Services
+### Import Services 
 
 ```typescript
-import {APP_CONFIG, DOT_CONFIG} from "dotcms-js/core/app.config";
-import {FileSystemService} from "dotcms-js/core/util/filesystem.service";
-import {HttpClient} from "dotcms-js/core/util/http.service";
-import {JWTAuthService} from "dotcms-js/core/util/jwt-auth.service";
-import {LocalStoreService} from "dotcms-js/core/util/local-store.service";
-import {LoggerService} from "dotcms-js/core/util/logger.service";
-import {NotificationService} from "dotcms-js/core/util/notification.service";
-import {SettingsStorageService} from "dotcms-js/core/util/settings-storage.service";
-import {SiteBrowserService} from "dotcms-js/core/util/site-browser.service";
-import {SiteBrowserState} from "dotcms-js/core/util/site-browser.state";
+// Import all the services
+import {
+    AppConfig,
+    FileSystemService,
+    HttpClient,
+    JWTAuthService,
+    LocalStoreService,
+    LoggerService,
+    NotificationService,
+    SettingsStorageService,
+    SiteBrowserService,
+    SiteBrowserState,
+    SiteSelectorService,
+    SiteTreetableService,
+} from 'dotcms-js/dotcms-js';
 
+// Add it to the declarations in your @NgModule
 @NgModule({
     providers: [
-        {provide: APP_CONFIG, useValue: DOT_CONFIG},
-        {provide: FileSystemService, useClass: FileSystemService},
-        {provide: HttpClient, useClass: HttpClient},
-        {provide: JWTAuthService, useClass: JWTAuthService},
-        {provide: LocalStoreService, useClass: LocalStoreService},
-        {provide: LoggerService, useClass: LoggerService},
-        {provide: NotificationService, useClass: NotificationService},
-        {provide: SettingsStorageService, useClass: SettingsStorageService},
-        {provide: SiteBrowserService, useClass: SiteBrowserService},
+        {provide: AppConfig, useClass: AppConfig}
+        {provide: FileSystemService, useClass: FileSystemService}
+        {provide: HttpClient, useClass: HttpClient}
+        {provide: JWTAuthService, useClass: JWTAuthService}
+        {provide: LocalStoreService, useClass: LocalStoreService}
+        {provide: LoggerService, useClass: LoggerService}
+        {provide: NotificationService, useClass: NotificationService}
+        {provide: SettingsStorageService, useClass: SettingsStorageService}
+        {provide: SiteBrowserService, useClass: SiteBrowserService}
         {provide: SiteBrowserState, useClass: SiteBrowserState}
-    ],
+        {provide: SiteSelectorService, useClass: SiteSelectorService}
+        {provide: SiteTreetableService, useClass: SiteTreetableService}
+    ]
 })
 ```
 
@@ -69,22 +77,42 @@ export class AppComponent {
 ### Import Components
 
 ```typescript
-import {BreadcrumbComponent} from "dotcms-js/components/breadcrumb/breadcrumb.componet";
+// Import all modules
+import {
+    DotcmsBreadcrumbModule,
+    DotcmsSiteDatatableModule,
+    DotcmsSiteSelectorModule,
+    DotcmsSiteTreeTableModule,
+    DotcmsTreeableDetailModule,
+} from 'dotcms-js/dotcms-js';
 
+// Add it to the declarations in your @NgModule
 @NgModule({
-    declarations: [
-        BreadcrumbComponent
-    ],
+    imports: [
+        DotcmsBreadcrumbModule,
+        DotcmsSiteDatatableModule,
+        DotcmsSiteSelectorModule,
+        DotcmsSiteTreeTableModule,
+        DotcmsTreeableDetailModule,
+    ]
 })
 ````
 
 ##### Use the component in your templates
 
 ```html
+<site-selector></site-selector>
 <breadcrumb></breadcrumb>
+<treeable-detail></treeable-detail>
+<site-datatable></site-datatable>
 ```
 
 ## Changelog
+
+### 0.0.5
+- Create modules for components
+- Update doc
+- Better way to import services and components
 
 ### 0.0.4
 - Update npmingnore
