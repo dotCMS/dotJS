@@ -21,7 +21,11 @@ export class SettingsStorageService {
     }
 
     getSettings():DotSettings{
-        return JSON.parse(this.localStoreService.getValue(this.configKey));
+        let dSettings: DotSettings = JSON.parse(this.localStoreService.getValue(this.configKey))
+        if(dSettings==null){
+            dSettings = new DotSettings();
+        }
+        return dSettings;
     }
 
     /**

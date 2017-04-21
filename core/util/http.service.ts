@@ -37,7 +37,7 @@ export class HttpClient {
      * @param headers
      */
     createAuthorizationHeader(headers: Headers) {
-        if(this.settingsStorageService.getSettings().jwt != null && this.settingsStorageService.getSettings().jwt.trim().length>0){
+        if(this.settingsStorageService.getSettings() != null && this.settingsStorageService.getSettings().jwt != null && this.settingsStorageService.getSettings().jwt.trim().length>0){
             headers.append('Authorization', 'Bearer ' + this.settingsStorageService.getSettings().jwt);
         }
     }
@@ -51,7 +51,8 @@ export class HttpClient {
     get(path : string): Observable<Response> {
         let headers = new Headers();
         this.createAuthorizationHeader(headers);
-        return this.http.get(this.settingsStorageService.getSettings().site + path, {headers: headers})
+        let site: String = this.settingsStorageService.getSettings().site;
+        return this.http.get( (site ? site:"") + path, {headers: headers})
             .debounceTime(400)
             .distinctUntilChanged();
     }

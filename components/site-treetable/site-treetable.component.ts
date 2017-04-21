@@ -9,7 +9,7 @@ import {NotificationService} from "../../core/util/notification.service";
 import {CommonModule} from "@angular/common";
 import {TreeTableModule} from "primeng/components/treetable/treetable";
 
-let fs = require('fs');
+// let fs = require('fs');
 
 @Component({
     selector: 'site-treetable',
@@ -68,7 +68,7 @@ export class SiteTreeTableComponent {
             }
         }
         this.log.debug("Path : " + pathToUploadTo);
-        console.log("Is Directory : " + fs.statSync(files[0].path).isDirectory());
+        // console.log("Is Directory : " + fs.statSync(files[0].path).isDirectory());
         this.messageService.displayInfoMessage("Path is " + pathToUploadTo);
 
 
