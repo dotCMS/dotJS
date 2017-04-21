@@ -37,7 +37,9 @@ export class HttpClient {
      * @param headers
      */
     createAuthorizationHeader(headers: Headers) {
-        headers.append('Authorization', 'Bearer ' + this.settingsStorageService.getSettings().jwt);
+        if(this.settingsStorageService.getSettings().jwt != null && this.settingsStorageService.getSettings().jwt.trim().length>0){
+            headers.append('Authorization', 'Bearer ' + this.settingsStorageService.getSettings().jwt);
+        }
     }
 
     /**
